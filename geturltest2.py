@@ -32,14 +32,10 @@ def get_tsfiles(url, playlists, t=10):
 def get_stream(start_time, rec_time):
     while (time.time() - start_time) < rec_time:
         playlist = get_playlist(m3u8_URL, TIMEOUT_TIME)
-        playlist.dump('output.m3u8')
+        # playlist.dump('output.m3u8')
         get_tsfiles(URL, playlist.files, TIMEOUT_TIME)
         time.sleep(SLEEP_TIME)
 
-#playlist = get_playlist(m3u8_URL, 10)
-#get_tsfiles(URL, playlist.files, 10)
-#playlist = get_playlist(m3u8_URL, 10)
-#print(playlist.data)
 get_stream(START_TIME, REC_TIME)
 print( sorted(create_list) )
 
