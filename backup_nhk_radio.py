@@ -42,7 +42,7 @@ for music in contents.find_all("music"):
     logger.info('filename:%s', filename)
     ffmpeg_run = ('ffmpeg', '-i', uri, '-movflags', 'faststart', '-c', 'copy', '-bsf:a', 'aac_adtstoasc', filename, '-y')
     logger.debug('ffmpeg_run:%s', ffmpeg_run)
-    subprocess.run(ffmpeg_run, shell=True, check=True)
+    subprocess.run(ffmpeg_run, shell=False, stdin=subprocess.DEVNULL, check=True)
 
 
-exit()
+# EOF
